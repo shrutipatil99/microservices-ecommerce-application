@@ -45,8 +45,11 @@ microservices-ecommerce-application/
 │   ├── add-to-cart.png
 │   └── place-order.png
 ├── user-service/
+│   └── schema.sql
 ├── product-service/
+│   └── schema.sql
 └── order-service/
+    └── schema.sql
 
 ```
 
@@ -66,10 +69,10 @@ Run all three (in separate terminals) to bring up the full system:
 
 ## Database Setup
 
-Each service expects its own pre-created Oracle schema on a local Oracle 21c XE instance:
-- `micro_user_db`
-- `micro_product_db`
-- `micro_order_db`
+Each service expects its own pre-created Oracle schema on a local Oracle 21c XE instance. Table DDL for each schema (extracted from the actual running database) is included in each service folder:
+- `micro_user_db` → [`user-service/schema.sql`](user-service/schema.sql)
+- `micro_product_db` → [`product-service/schema.sql`](product-service/schema.sql)
+- `micro_order_db` → [`order-service/schema.sql`](order-service/schema.sql)
 
 ## Known Limitations (intentional, documented trade-offs)
 
