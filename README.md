@@ -38,9 +38,16 @@ microservices-ecommerce-application/
 ├── docs/
 │   ├── architecture-diagram.png
 │   └── er-diagram.png
+├── screenshots/
+│   ├── create-user.png
+│   ├── create-product.png
+│   ├── get-all-products.png
+│   ├── add-to-cart.png
+│   └── place-order.png
 ├── user-service/
 ├── product-service/
 └── order-service/
+
 ```
 
 ## Running Locally
@@ -68,3 +75,15 @@ Each service expects its own pre-created Oracle schema on a local Oracle 21c XE 
 
 - **No inter-service REST communication yet** — `order-service` does not currently call `product-service` or `user-service` over HTTP to validate stock or user existence. This is the planned next step (see "Future" note in the architecture diagram).
 - **Cart pricing is currently hardcoded** instead of being fetched live from `product-service` — a direct consequence of the above limitation.
+
+## API Testing Screenshots
+
+Postman screenshots demonstrating each service's core endpoints:
+
+| Screenshot | Endpoint |
+|---|---|
+| `screenshots/create-user.png` | `POST /api/users` |
+| `screenshots/create-product.png` | `POST /api/products` |
+| `screenshots/get-all-products.png` | `GET /api/products` |
+| `screenshots/add-to-cart.png` | `POST /api/cart` |
+| `screenshots/place-order.png` | `POST /api/orders` |

@@ -41,12 +41,17 @@ public class OrderService {
 //		}
 //		User user = userOptional.get();
 		
-		
+		/* why not using this bcz subtotal not calutating proper bcz of hard code
 		//Calculate total price
 		BigDecimal totalPrice =  cartItems.stream()
 				.map(CartItem::getPrice)
 				.reduce(BigDecimal.ZERO, BigDecimal::add);
+		*/
 		
+		//Calculate total price
+		BigDecimal totalPrice = cartItems.stream()
+				.map(item -> item.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
+				.reduce(BigDecimal.ZERO, BigDecimal::add);
 	
 		//create order
 		Order order = new Order();
@@ -85,7 +90,7 @@ public class OrderService {
 						orderItem.getProductId(),
 						orderItem.getQuantity(),
 						orderItem.getPrice(),
-						orderItem.getPrice()
+						orderItem.getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity()))
 						))
 						.toList(),
 						order.getCreatedAt()
