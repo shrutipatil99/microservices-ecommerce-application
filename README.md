@@ -79,14 +79,22 @@ Each service expects its own pre-created Oracle schema on a local Oracle 21c XE 
 - **No inter-service REST communication yet** — `order-service` does not currently call `product-service` or `user-service` over HTTP to validate stock or user existence. This is the planned next step (see "Future" note in the architecture diagram).
 - **Cart pricing is currently hardcoded** instead of being fetched live from `product-service` — a direct consequence of the above limitation.
 
+
 ## API Testing Screenshots
 
 Postman screenshots demonstrating each service's core endpoints:
 
-| Screenshot | Endpoint |
-|---|---|
-| `screenshots/create-user.png` | `POST /api/users` |
-| `screenshots/create-product.png` | `POST /api/products` |
-| `screenshots/get-all-products.png` | `GET /api/products` |
-| `screenshots/add-to-cart.png` | `POST /api/cart` |
-| `screenshots/place-order.png` | `POST /api/orders` |
+### Create a User — `POST /api/users`
+![Create User](screenshots/create-user.png)
+
+### Create a Product — `POST /api/products`
+![Create Product](screenshots/create-product.png)
+
+### Get All Products — `GET /api/products`
+![Get All Products](screenshots/get-all-products.png)
+
+### Add to Cart — `POST /api/cart`
+![Add to Cart](screenshots/add-to-cart.png)
+
+### Place Order — `POST /api/orders`
+![Place Order](screenshots/place-order.png)
